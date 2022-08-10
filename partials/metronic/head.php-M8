@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <base href="">
+    <title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+    <meta name="keywords" content="Metronic, Bootstrap, Bootstrap 5, Angular, VueJs, React, Asp.Net Core, Blazor, Django, Flask &amp; Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular, Asp.Net Core, Blazor, Django, Flask &amp; Laravel Admin Dashboard Theme" />
+    <meta property="og:url" content="https://keenthemes.com/metronic" />
+    <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+
+
+
+
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Vendor Stylesheets(used by this page)-->
+    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+<!--    <link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />-->
+<!--    <link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />-->
+
+
+    <!-- OG Styles & Scripts -->
+    <link href="/assets/css/styles_light_dev.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="https://360creatives.blob.core.windows.net/branding/favicon.svg" />
+    <script type="module" src="https://online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+
+    <script type="text/javascript">
+        /* User information */
+        var username = sessionStorage.getItem("username");
+        var project = sessionStorage.getItem("project");
+        var client = sessionStorage.getItem("client");
+        var packagetype = sessionStorage.getItem("packagetype");
+        var demono = sessionStorage.getItem("demono");
+        var email = sessionStorage.getItem("email");
+        var altemail = sessionStorage.getItem("altemail");
+        /* Hardcoded user info for static version*/
+        var project = "OneFourZeroDemo-BASICPACKAGE"
+        /* Tableau Dashbaord Visualisation */
+        var vizList = ["https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/Navigation",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketingEfficiencies-Channels",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketingEfficiencies-SEOPerformance",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketingEfficiencies-PPCPerformance",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketingEfficiencies-SocialReferralTraffic",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketShareSizeandGrowth-TAM",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketShareSizeandGrowth-Headroom",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketShareSizeandGrowth-Size",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/MarketShareSizeandGrowth-Growth",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/CustomerCohortsandSentiment-Cohorts",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/CustomerCohorts-SentimentandMentions",
+            "https://eu-west-1a.online.tableau.com/#/site/onefourzero/views/"+project+"/CustomerCohortsandSentiment-Profiling"];
+
+        var viz,
+            vizLen = vizList.length,
+            vizCount = 0;
+
+        function createViz(vizCount) {
+
+            var vizURL = vizList[vizCount];
+            $("#tableauViz").attr("src", vizURL);
+
+        }
+
+        /* Hide module links from side nav based on package type */
+        function packageHide(package) {
+            const targetDiv = document.getElementById(package);
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+            } else {
+                targetDiv.style.display = "block";
+            }
+        };
+
+        /* Disable, grey out and add lock icons on module links in side nav based on package type */
+        function packageType(packagetype) {
+            if (packagetype === "basic") {
+                $('#1').css("background","rgba(92,117,140,0.5)");
+                $('#5').css("background","rgba(92,117,140,0.5)");
+                $('#6').css("background","rgba(92,117,140,0.5)");
+                $('#7').css("background","rgba(92,117,140,0.5)");
+
+                $('#1 .lockimage').css("display","flex");
+                $('#5 .lockimage').css("display","flex");
+                $('#6 .lockimage').css("display","flex");
+                $('#7 .lockimage').css("display","flex");
+                $('#tabs1 .lockimagemini').css("display","flex");
+                $('#tabs5 .lockimagemini').css("display","flex");
+                $('#tabs6 .lockimagemini').css("display","flex");
+                $('#tabs7 .lockimagemini').css("display","flex");
+
+                $("#tabs1 .dropdown-option").prop("onclick", null).off('click');
+                $("#tabs5 .dropdown-option").prop("onclick", null).off('click');
+                $("#tabs6 .dropdown-option").prop("onclick", null).off('click');
+                $("#tabs7 .dropdown-option").prop("onclick", null).off('click');
+
+            } else if (packagetype === "standard"){
+                $('#7').css("background","rgba(92,117,140,0.5)");
+                $('#7 .lockimage').css("display","flex");
+                $('#tabs7 .lockimage').css("display","flex");
+                $("#tabs7 .dropdown-option").prop("onclick", null).off('click');
+            }
+        };
+
+        /* Date from and to restrictions and defaults for New Project Request Form */
+        function formatISOLocal(d) {
+            let z = n => ('0' + n).slice(-2);
+            return d.getFullYear()+'-'+z(d.getMonth() + 1) + '-' + z(d.getDate());
+        }
+
+        function DatesDynamic() {
+            let inp = document.querySelector('#project-start-date');
+            let inpe = document.querySelector('#project-end-date');
+            let d = new Date();
+            if (d.getDate() >= '15'){
+                d.setDate(0);
+                inp.max = formatISOLocal(d);
+                inpe.max = formatISOLocal(d);
+                d.setFullYear(d.getFullYear() - 2);
+                d.setDate(1);
+                d.setMonth(d.getMonth()+1);
+                inp.min = formatISOLocal(d);
+                inpe.min = formatISOLocal(d);
+                inp.defaultValue = inp.min;
+                inpe.defaultValue = inp.max;
+                console.log(inp.outerHTML);
+            }
+            else {
+                d.setMonth(d.getMonth() - 1);
+                d.setDate(0);
+                inp.max = formatISOLocal(d);
+                inpe.max = formatISOLocal(d);
+                d.setFullYear(d.getFullYear() - 2);
+                d.setDate(1);
+                d.setMonth(d.getMonth()+1);
+                inp.min = formatISOLocal(d);
+                inpe.min = formatISOLocal(d);
+                inp.defaultValue = inp.min;
+                inpe.defaultValue = inp.max;
+                console.log(inp.outerHTML);
+            }
+        };
+    </script>
+    <script>
+        /*All fuctions that need to be run on page load */
+        function LoadAll(){
+            var projectname = "DEMO_GOOUTDOORS";
+            $("#vizFilter").attr("value", projectname);
+
+            $.get("https://tableauusertoken.azurewebsites.net/api/GetUserToken?code=Hln9dWTbEjxtCkrAC1AT2LsT5HLoWHtP_KpQR_A-SrMMAzFuZObe1g==",
+                function (token) {
+                    $("#tableauViz").attr("token", token);
+                    console.log(token);
+                });
+            createViz('5');
+            packageType(packagetype);
+            DatesDynamic();
+            document.getElementById("username").innerHTML = "<br /><br />" +username + "<br />"+client;
+            GlossaryModule(1);
+            GlossaryTab(1);
+
+            var activeprojects= ['DEMO_GOOUTDOORS','DEMO_Wonderbly'];
+            $.each(activeprojects, function(index, value) {
+                $("#project-filter").append(new Option(value, value));
+            });
+
+        };
+    </script>
+    <!-- END: OG Styles & Scripts -->
+    <!--end::Global Stylesheets Bundle-->
+    </base>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body data-kt-name="metronic" id="kt_body">
+<!--begin::Theme mode setup on page load-->
+<script>if ( document.documentElement ) { const defaultThemeMode = "system"; const name = document.body.getAttribute("data-kt-name"); let themeMode = localStorage.getItem("kt_" + ( name !== null ? name + "_" : "" ) + "theme_mode_value"); if ( themeMode === null ) { if ( defaultThemeMode === "system" ) { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } else { themeMode = defaultThemeMode; } } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+<!--end::Theme mode setup on page load-->
+<!--begin::Main-->
+<!--begin::Root-->
+<div class="d-flex flex-column flex-root">
+
+    <!--begin::Page-->
+    <div class="page d-flex flex-row flex-column-fluid">
+        <!--begin::Aside-->
+        <?php include_once('./partials/side-nav.php'); ?>
+        <!--end::Aside-->
+        <!--begin::Wrapper-->
+        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <!--begin::Header-->
+            <?php include_once('./partials/header.php'); ?>
+            <!--end::Header-->
+
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Container-->
+                <div class="container-fluid" id="kt_content_container">
